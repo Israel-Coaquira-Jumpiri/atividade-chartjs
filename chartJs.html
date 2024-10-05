@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o Chart JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .graficos {
+        margin-bottom: 60px;
+      }
+    </style>
+</head>
+<body>
+    <div>
+        <canvas class="graficos" id="graficoLinha"></canvas>
+        <canvas class="graficos" id="graficoColuna"></canvas>
+    </div>
+</body>
+<script>
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+        ];
+    const data_linha = {
+        labels: labels,
+        datasets: [
+        {
+            label: 'Temperatura',
+            backgroundColor: '#ff6384',
+            borderColor: '#ff6384',
+            data: [30, 29, 28, 25, 22, 23],
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: '#36a2eb',
+            borderColor: '#36a2eb',
+            data: [80, 82, 80, 85, 85, 83],
+        }
+    ]
+    };
+    const graficodelinha = {
+        type: 'line',
+        data: data_linha,
+        options: {
+        }
+    };
+  
+    const label_linha = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+    ];
+    const data_coluna = {
+        labels: label_linha,
+        datasets: [
+        {
+            label: 'Temperatura média',
+            backgroundColor: '#ff6384',
+            borderColor: '#ff6384',
+            data: [22, 24, 27, 23, 20, 18],
+        },
+        {
+            label: 'Umidade média',
+            backgroundColor: '#36a2eb',
+            borderColor: '#36a2eb',
+            data: [90, 89, 93, 87, 88, 82],
+        }
+      ]
+    };
+      
+      const graficodecoluna = {
+          type: 'bar',
+          data: data_coluna,
+          options: {
+        }
+      };
+
+    const graficoLinha = new Chart(
+        document.getElementById('graficoLinha'), 
+        graficodelinha
+    );
+    const graficoColuna = new Chart(
+        document.getElementById('graficoColuna'),
+        graficodecoluna
+    );
+</script>
+</html>
